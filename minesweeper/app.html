@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+	  <script src="controller.js"></script>
+<style>
+.minefield {
+    line-height:0;
+    border-spacing:0;
+}
+
+.minefield td {
+    padding:0
+}
+</style>
+	  
+  </head>
+    <body>
+<div ng-controller="MinesweeperController">
+    <h3 ng-if="isWinMessageVisible">You won!</h3>
+    <table class="minefield">
+        <tr ng-repeat="row in minefield.rows">
+            <td ng-repeat="spot in row.spots" ng-click="uncoverSpot(spot)">
+                <img ng-if="spot.isCovered" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/covered.png" />
+                <img ng-if="!spot.isCovered && spot.content == 'empty'" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/empty.png" />
+                <img ng-if="!spot.isCovered && spot.content == 'mine'" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/mine.png" />
+                <img ng-if="!spot.isCovered && spot.content == 1" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-1.png" />
+                <img ng-if="!spot.isCovered && spot.content == 2" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-2.png" />
+                <img ng-if="!spot.isCovered && spot.content == 3" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-3.png" />
+                <img ng-if="!spot.isCovered && spot.content == 4" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-4.png" />
+                <img ng-if="!spot.isCovered && spot.content == 5" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-5.png" />
+                <img ng-if="!spot.isCovered && spot.content == 6" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-6.png" />
+                <img ng-if="!spot.isCovered && spot.content == 7" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-7.png" />
+                <img ng-if="!spot.isCovered && spot.content == 8" src="http://luis-perez.s3-us-west-2.amazonaws.com/angularjs-minesweeper-game/number-8.png" />
+            </td>
+        </tr>
+    </table>
+</div>
+    </body>
+</html>
